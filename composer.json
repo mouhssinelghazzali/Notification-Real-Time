@@ -15,7 +15,9 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
-        "pusher/pusher-php-server": "~4.0"
+        "pusher/pusher-php-server": "~4.0",
+        "thepinecode/blade-filters": "^0.6.0",
+        "webklex/laravel-imap": "^1.5"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

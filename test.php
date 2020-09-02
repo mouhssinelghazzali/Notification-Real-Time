@@ -1,6 +1,3 @@
-
-
-@extends('layouts.app')
 <style>
     * {
   margin: 0px; padding: 0px;
@@ -159,20 +156,18 @@ input[name=search]:focus {
   right: 10px;
 }
 </style>
-@section('content')
-
-
 <header>
   <h1>messages</h1>
 </header>
 
-{{-- <div class="mailbox">
+<div class="mailbox">
   <div class="nav">
-      @foreach($aFolder[0]->children  as $key => $value)
-      <a href="#">{{ Illuminate\Support\Str::after($value->full_name,'INBOX.')  }}</a>
-      @endforeach
-  
-
+    <a href="#">compose</a>
+    <a href="#" >inbox</a>
+    <a href="#">starred</a>
+    <a href="#">sent</a>
+    <a href="#">drafts (1)</a>
+    <a href="#">trash</a>
   </div>
   <div class="messages">
     <input name="search" placeholder="search" />
@@ -235,60 +230,4 @@ input[name=search]:focus {
     </div>
     
   </div>
-</div> --}}
-<h1>Inbox</h1>
-<table>
-  <thead>
-      <tr>
-          <th>UID</th>
-          <th>Subject</th>
-          <th>From</th>
-          <th>Attachments</th>
-      </tr>
-  </thead>
-  <tbody>
-      @if($oFolderArchive->count() > 0)
-          @foreach($oFolderArchive as $oMessage)
-              <tr>
-                  <td>{{$oMessage->getUid()}}</td>
-                  <td>{{$oMessage->getSubject()}}</td>
-                  <td>{{$oMessage->getFrom()[0]->mail}}</td>
-                  <td>{{$oMessage->getAttachments()->count() > 0 ? 'yes' : 'no'}}</td>
-              </tr>
-          @endforeach
-      @else
-          <tr>
-              <td colspan="4">No messages found</td>
-          </tr>
-      @endif
-  </tbody>
-</table>
-<h1>Archive</h1>
-<table>
-  <thead>
-      <tr>
-          <th>UID</th>
-          <th>Subject</th>
-          <th>From</th>
-          <th>Attachments</th>
-      </tr>
-  </thead>
-  <tbody>
-      @if($paginator->count() > 0)
-          @foreach($paginator as $oMessage)
-              <tr>
-                  <td>{{$oMessage->getUid()}}</td>
-                  <td>{{$oMessage->getSubject()}}</td>
-                  <td>{{$oMessage->getFrom()[0]->mail}}</td>
-                  <td>{{$oMessage->getAttachments()->count() > 0 ? 'yes' : 'no'}}</td>
-              </tr>
-          @endforeach
-      @else
-          <tr>
-              <td colspan="4">No messages found</td>
-          </tr>
-      @endif
-  </tbody>
-</table>
-
-@endsection
+</div>
